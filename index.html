@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eduardo · Primeira Comunhão</title>
+<meta name="description" content="Convite para a Primeira Comunhão de Eduardo — 5 de dezembro de 2026.">
+<meta name="theme-color" content="#F6EEE6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/carta.webp">
+<link rel="preload" as="image" href="img/selo.webp">
+<link rel="preload" as="image" href="img/papel.webp">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body class="travado">
+
+<main>
+  <!-- CAPA: o envelope abre sozinho e a carta vira a capa -->
+  <section class="capa" id="capa">
+    <div class="fundo" aria-hidden="true"></div>
+    <div class="palco">
+      <span class="peca env-fundo" aria-hidden="true"></span>
+      <article class="cartao" aria-label="Convite">
+        <div class="cartao-texto">
+          <h1 class="nome">EDUARDO</h1>
+          <p class="script">Primeira Comunhão</p>
+          <div class="divisor" aria-hidden="true"><span></span>✝<span></span></div>
+          <p class="data">5 de dezembro de 2026</p>
+          <span class="filete" aria-hidden="true"></span>
+          <div class="bloco">
+            <p class="rotulo">Cerimônia</p>
+            <p class="info">Às 10h <i>|</i> Igreja Nossa Senhora de Fátima</p>
+          </div>
+          <span class="filete" aria-hidden="true"></span>
+          <div class="bloco">
+            <p class="rotulo">Recepção</p>
+            <p class="info">Às 12h <i>|</i> Av. Boa Viagem, 2554</p>
+          </div>
+        </div>
+      </article>
+      <span class="peca env-frente" aria-hidden="true"></span>
+      <span class="peca env-aba" aria-hidden="true"></span>
+      <img class="selo" src="img/selo.webp" alt="" aria-hidden="true">
+    </div>
+    <button class="pular" id="pular">Pular</button>
+    <a href="#mensagem" class="rolar" aria-label="Continuar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></a>
+  </section>
+
+  <!-- MENSAGEM -->
+  <section id="mensagem" class="mensagem">
+    <img class="mensagem-pomba revelar" src="img/pomba.webp" alt="" aria-hidden="true" loading="lazy">
+    <p class="convidamos revelar">Com o coração cheio de alegria, convidamos você para celebrar conosco a Primeira Comunhão do nosso Eduardo.</p>
+  </section>
+
+  <!-- CONTAGEM -->
+  <section class="contagem">
+    <p class="rotulo revelar">Faltam</p>
+    <div class="relogio revelar" id="relogio" aria-live="off">
+      <div><b data-u="d">00</b><small>dias</small></div>
+      <div><b data-u="h">00</b><small>horas</small></div>
+      <div><b data-u="m">00</b><small>minutos</small></div>
+      <div><b data-u="s">00</b><small>segundos</small></div>
+    </div>
+    <p class="relogio-fim" hidden>Hoje é o grande dia!</p>
+  </section>
+
+  <!-- PROGRAMAÇÃO -->
+  <section class="programa">
+    <h2 class="rotulo-secao revelar">Programação</h2>
+    <div class="eventos">
+      <article class="evento revelar">
+        <img src="img/cruz.webp" alt="" aria-hidden="true" loading="lazy">
+        <p class="hora">10h</p>
+        <h3>Cerimônia</h3>
+        <p>Igreja Nossa Senhora de Fátima</p>
+        <a class="botao" href="https://www.google.com/maps/search/?api=1&query=Igreja+Nossa+Senhora+de+F%C3%A1tima+Boa+Viagem+Recife" target="_blank" rel="noopener">Como chegar</a>
+      </article>
+      <article class="evento revelar">
+        <img src="img/trigo.webp" alt="" aria-hidden="true" loading="lazy">
+        <p class="hora">12h</p>
+        <h3>Recepção</h3>
+        <p>Av. Boa Viagem, 2554</p>
+        <a class="botao" href="https://www.google.com/maps/search/?api=1&query=Av.+Boa+Viagem+2554+Recife" target="_blank" rel="noopener">Como chegar</a>
+      </article>
+    </div>
+    <button class="botao botao-cheio revelar" id="agenda">Salvar na agenda</button>
+  </section>
+</main>
+
+<footer class="rodape">
+  <img src="img/ramo.webp" alt="" aria-hidden="true" loading="lazy">
+  <p class="assinatura">Eduardo</p>
+  <button class="rever" id="rever">Abrir o envelope de novo</button>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
