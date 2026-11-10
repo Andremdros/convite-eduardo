@@ -21,6 +21,8 @@ const passo = (ms, fn) => timers.push(setTimeout(fn, semMovimento ? 0 : ms));
 function liberar() {
   document.body.classList.remove("travado");
   prepararRevelar();
+  // garantia: depois do fade, todos os textos da carta ficam visíveis de vez
+  timers.push(setTimeout(() => capa.classList.add("texto-ok"), 2000));
 }
 function abrir() {
   timers.forEach(clearTimeout); timers = [];
@@ -53,7 +55,7 @@ function rever() {
   document.documentElement.style.scrollBehavior = "";
   document.body.classList.add("travado");
   capa.classList.add("sem-transicao");
-  capa.classList.remove(...ETAPAS);
+  capa.classList.remove(...ETAPAS, "texto-ok");
   void capa.offsetWidth;
   capa.classList.remove("sem-transicao");
   abrir();

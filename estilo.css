@@ -133,9 +133,8 @@ a { color: inherit; }
   transform: translateY(calc(var(--y0) + 14svh)) scale(.86); opacity: 0;
   transition: transform 1.4s var(--suave), opacity 1.12s ease, box-shadow 1.68s ease;
   text-align: center; font-size: calc(var(--w) / 25);
-  backface-visibility: hidden; -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
-.final .cartao { transform: none; transition: none; }
 .entrou .cartao { transform: translateY(var(--y0)) scale(.86); opacity: 1; }
 .tirando .cartao { transform: translateY(calc(var(--y0) - var(--w) * .38)) scale(.86); transition: transform 1.26s var(--suave); }
 .pousou .cartao {
@@ -144,12 +143,15 @@ a { color: inherit; }
   transition: transform 1.82s cubic-bezier(.6, 0, .2, 1), box-shadow 1.82s ease;
 }
 .cartao-texto { position: absolute; left: 6%; right: 6%; top: var(--texto-topo, 38%); }
-.cartao-texto > * { opacity: 0; transition: opacity 1s ease; }
-.final .cartao-texto > * { opacity: 1; }
-.final .cartao-texto > :nth-child(2) { transition-delay: 0.1s; }
-.final .cartao-texto > :nth-child(3) { transition-delay: 0.21s; }
-.final .cartao-texto > :nth-child(4) { transition-delay: 0.32s; }
-.final .cartao-texto > :nth-child(n+5) { transition-delay: 0.45s; }
+/* textos: animação (mais confiável no Safari do iPhone que transição com atraso) */
+.cartao-texto > * { opacity: 0; }
+.final .cartao-texto > * { opacity: 1; animation: textoSurge 1s ease both; }
+.final .cartao-texto > :nth-child(2) { animation-delay: .1s; }
+.final .cartao-texto > :nth-child(3) { animation-delay: .2s; }
+.final .cartao-texto > :nth-child(4) { animation-delay: .3s; }
+.final .cartao-texto > :nth-child(n+5) { animation-delay: .45s; }
+.texto-ok .cartao-texto > * { opacity: 1 !important; animation: none !important; }
+@keyframes textoSurge { from { opacity: 0; } to { opacity: 1; } }
 .cartao .nome { font-size: 3.15em; }
 .cartao .script { font-size: 2em; margin-top: .05em; }
 .cartao .divisor { font-size: .85em; margin: .45em auto .4em; gap: .6em; }
