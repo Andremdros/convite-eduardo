@@ -47,6 +47,7 @@ a { color: inherit; }
 .data { font-size: clamp(14px, 4.2vw, 19px); letter-spacing: .26em; }
 .divisor { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--nome); font-size: 20px; margin: 12px auto 10px; }
 .divisor span { width: 46px; height: 1px; background: var(--nome); opacity: .5; }
+.divisor .cruz { width: .9em; height: 1.26em; flex: none; fill: none; stroke: currentColor; stroke-width: .9; stroke-linecap: round; }
 .rotulo-secao { font-weight: 400; font-size: 15px; letter-spacing: .38em; }
 .rotulo-secao::after { content: ""; display: block; width: 44px; height: 1px; background: var(--nome); opacity: .5; margin: 18px auto 0; }
 
