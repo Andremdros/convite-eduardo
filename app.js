@@ -22,22 +22,22 @@ function liberar() {
   document.body.classList.remove("travado");
   prepararRevelar();
   // garantia: depois do fade, todos os textos da carta ficam visíveis de vez
-  timers.push(setTimeout(() => capa.classList.add("texto-ok"), 2000));
+  timers.push(setTimeout(() => capa.classList.add("texto-ok"), 700));
 }
 function abrir() {
   timers.forEach(clearTimeout); timers = [];
-  passo(100, () => capa.classList.add("entrou"));     // envelope chega perto da tela
-  passo(1500, () => capa.classList.add("abrindo"));   // selo some, aba abre
-  passo(2900, () => capa.classList.add("tirando"));   // a carta começa a sair
-  passo(3900, () => capa.classList.add("pousou"));    // envelope desce, carta vem para a frente
+  passo(30, () => capa.classList.add("entrou"));     // envelope chega perto da tela
+  passo(550, () => capa.classList.add("abrindo"));   // selo some, aba abre
+  passo(1150, () => capa.classList.add("tirando"));   // a carta começa a sair
+  passo(1650, () => capa.classList.add("pousou"));    // envelope desce, carta vem para a frente
   // o texto só aparece quando a carta parou de vez (sem tremor)
-  passo(5900, () => { capa.classList.add("final"); liberar(); });
+  passo(2600, () => { capa.classList.add("final"); liberar(); });
 }
 async function quandoPronto() {
   const imgs = ["img/carta.webp", "img/selo.webp", "img/papel.webp"].map((src) => {
     const i = new Image(); i.src = src; return i.decode().catch(() => {});
   });
-  await Promise.race([Promise.all([document.fonts?.ready, ...imgs]), new Promise((r) => setTimeout(r, 3000))]);
+  await Promise.race([Promise.all([document.fonts?.ready, ...imgs]), new Promise((r) => setTimeout(r, 1200))]);
   abrir();
 }
 function pular() {
